@@ -1,0 +1,19 @@
+h1{
+  margin: 50px;
+  text-align: center;
+}
+#nameBox{
+  height: 40px;
+  width: 200px;
+  text-align: center !important;
+  font-size: 32px;
+  font-weight: lighter;
+  outline: none;
+  border: none;
+  bottom: 100px;
+  border-radius: 2px;
+}
+.nameDiv{
+  text-align: center;
+}
+
