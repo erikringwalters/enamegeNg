@@ -13,7 +13,13 @@ h1{
   bottom: 100px;
   border-radius: 2px;
 }
+#nameParams{
+  text-align: center;
+}
 .nameDiv{
   text-align: center;
+}
+.btnGroup{
+  display: inline-block;
 }
 
