@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RaceComponent implements OnInit {
 
+  race: String;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getRace() {
+    return this.race;
+  }
+  setRace(race: String) {
+    this.race = race;
   }
 
 }

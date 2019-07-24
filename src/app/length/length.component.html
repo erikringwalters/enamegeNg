@@ -1,5 +1,5 @@
 <div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle"
+    <a class="btn btn-light dropdown-toggle"
     href="#" role="button" id="dropdownMenuLink"
     data-toggle="dropdown" aria-haspopup="true"
     aria-expanded="false">
@@ -10,9 +10,9 @@
     <div class="dropdown-menu"
     aria-labelledby="dropdownMenuLink" >
     <h6 class="dropdown-header">Length</h6>
-      <a class="dropdown-item" value="short">Short</a>
-      <a class="dropdown-item" value="medium">Medium</a>
-      <a class="dropdown-item" value="long">Long</a>
-      <a class="dropdown-item" value="any">Any</a>
+      <a class="dropdown-item" (click)="setLength('short')" value="short">Short</a>
+      <a class="dropdown-item" (click)="setLength('medium')" value="medium">Medium</a>
+      <a class="dropdown-item" (click)="setLength('long')" value="long">Long</a>
+      <a class="dropdown-item" (click)="setLength('any')" value="any">Any</a>
     </div>
   </div>

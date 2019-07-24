@@ -1,5 +1,5 @@
 <div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle"
+    <a class="btn btn-light dropdown-toggle"
     href="#" role="button" id="dropdownMenuLink"
     data-toggle="dropdown" aria-haspopup="true"
     aria-expanded="false">
@@ -10,9 +10,9 @@
     <div class="dropdown-menu"
     aria-labelledby="dropdownMenuLink" >
     <h6 class="dropdown-header">Race</h6>
-      <a class="dropdown-item" value="human">Human</a>
-      <a class="dropdown-item" value="elf">Elf</a>
-      <a class="dropdown-item" value="orc">Orc</a>
-      <a class="dropdown-item" value="any">Any</a>
+      <a class="dropdown-item" (click)="setRace('human')" value="human">Human</a>
+      <a class="dropdown-item" (click)="setRace('elf')" value="elf">Elf</a>
+      <a class="dropdown-item" (click)="setRace('orc')" value="orc">Orc</a>
+      <a class="dropdown-item" (click)="setRace('any')" value="any">Any</a>
     </div>
   </div>

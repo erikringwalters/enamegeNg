@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LengthComponent implements OnInit {
 
+  length: String;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getLength() {
+    return this.length;
+  }
+  setLength(length: String) {
+    this.length = length;
   }
 
 }

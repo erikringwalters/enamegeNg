@@ -1,7 +1,7 @@
 <!-- Button Content -->
-<!-- [(ngModel)]=generate().gender -->
+<!--  -->
 <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle"
+  <a class="btn btn-light dropdown-toggle"
   href="#" role="button" id="dropdownMenuLink"
   data-toggle="dropdown"aria-haspopup="true"
   aria-expanded="false">
@@ -10,11 +10,11 @@
 
   <!-- Menu Content -->
   <div class="dropdown-menu"
-  aria-labelledby="dropdownMenuLink" >
+  aria-labelledby="dropdownMenuLink">
   <h6 class="dropdown-header">Length</h6>
-    <a class="dropdown-item" value="male">Male</a>
-    <a class="dropdown-item" value="female">Female</a>
-    <a class="dropdown-item" value="other">Other</a>
-    <a class="dropdown-item" value="any">Any</a>
+    <a class="dropdown-item" (click)="setGender('male')" value="male">Male</a>
+    <a class="dropdown-item" (click)="setGender('female')" value="female">Female</a>
+    <a class="dropdown-item" (click)="setGender('other')" value="other">Other</a>
+    <a class="dropdown-item" (click)="setGender('any')" value="any">Any</a>
   </div>
 </div>
