@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NameService } from '../name.service';
+import { AppModule } from '../app.module';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +12,12 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.name = this.nameService.generateName("","","");
   }
+  nameService: NameService = new NameService;
+
+  //TODO: Get title from app component
   title = 'eNameGen';
 
+  name: string;
 }
