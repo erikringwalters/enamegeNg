@@ -1,5 +1,3 @@
-<!-- Button Content -->
-<!--  -->
 <div class="dropdown show">
   <a class="btn btn-light dropdown-toggle"
   href="#" role="button" id="dropdownMenuLink"
@@ -11,11 +9,11 @@
   <!-- Menu Content -->
   <div class="dropdown-menu"
   aria-labelledby="dropdownMenuLink">
-  <h6 class="dropdown-header">Gender</h6>
-  <a *ngFor="let gender of genders" class="dropdown-item"
-  (click)="nameService.setGender(genders[gender])" value="short">
-  <!-- Capitalize first letter of string -->
-  {{ gender.charAt(0).toUpperCase() + gender.slice(1) }}
-  </a>
-</div>
+    <h6 class="dropdown-header">Gender</h6>
+    <a *ngFor="let gender of genders" class="dropdown-item"
+    (click)="nameService.setGender(gender)" value="short">
+    <!-- Capitalize first letter of string -->
+    {{ gender.charAt(0).toUpperCase() + gender.slice(1) }}
+    </a>
+  </div>
 </div>

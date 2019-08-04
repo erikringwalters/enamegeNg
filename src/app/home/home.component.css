@@ -8,11 +8,17 @@ h1 {
 
 .nameDiv {
   text-align: center;
+  user-select: none;
+}
+
+.nextPrev {
+  font-size: 24pt;
+  cursor: pointer;
 }
 
 #nameBox {
   height: 40px;
-  width: 300px;
+  width: 250px;
   text-align: center !important;
   font-size: 32px;
   font-weight: lighter;

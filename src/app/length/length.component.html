@@ -1,19 +1,19 @@
 <div class="dropdown show">
-    <a class="btn btn-light dropdown-toggle"
-    href="#" role="button" id="dropdownMenuLink"
-    data-toggle="dropdown" aria-haspopup="true"
-    aria-expanded="false">
-      L
-    </a>
+  <a class="btn btn-light dropdown-toggle"
+  href="#" role="button" id="dropdownMenuLink"
+  data-toggle="dropdown" aria-haspopup="true"
+  aria-expanded="false">
+    L
+  </a>
 
-    <!-- Menu Content -->
-    <div class="dropdown-menu"
-    aria-labelledby="dropdownMenuLink" >
+  <!-- Menu Content -->
+  <div class="dropdown-menu"
+  aria-labelledby="dropdownMenuLink" >
     <h6 class="dropdown-header">Length</h6>
-      <a *ngFor="let length of lengths" class="dropdown-item"
-      (click)="nameService.setLength(lengths[length])" value="short">
-      <!-- Capitalize first letter of string -->
-      {{ length.charAt(0).toUpperCase() + length.slice(1) }}
-      </a>
-    </div>
+    <a *ngFor="let length of lengths" class="dropdown-item"
+    (click)="nameService.setLength(length)" value="short">
+    <!-- Capitalize first letter of string -->
+    {{ length.charAt(0).toUpperCase() + length.slice(1) }}
+    </a>
   </div>
+</div>

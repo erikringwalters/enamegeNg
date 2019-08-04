@@ -14,6 +14,9 @@ export class NameService {
   race: string;
   length: string;
   liked: boolean;
+  nameIndex: number;
+
+  nameList: Array<string> = [];
 
   getRandomNumber(min, max) {
     var random = Math.floor(Math.random() * (+max - +min)) + +min;
@@ -26,9 +29,30 @@ export class NameService {
     this.name = this.name + this.basic2[this.getRandomNumber(0, this.basic2.length)];
     this.name = this.name + this.basic3[this.getRandomNumber(0, this.basic3.length)];
 
+    this.addToNameList(this.name);
+
     return this.name;
   }
 
+  addToNameList(name: string) {
+    if (this.nameList.length >= 100) {
+      this.nameList.shift();
+    }
+    this.nameList.push(name);
+    this.nameIndex = this.nameList.length;
+  }
+
+  goToPreviousName() {
+    if (this.nameIndex > 0) {
+      this.nameIndex--;
+    }
+  }
+
+  goToNextName() {
+    if(this.nameIndex < this.nameList.length) {
+      this.nameIndex++;
+    }
+  }
 
   setName(name: string) {
     this.name = name;

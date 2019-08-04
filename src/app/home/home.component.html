@@ -1,12 +1,19 @@
 <h1 class="center">{{ title }}</h1>
 <br/>
 
-<div class="nameDiv">
-  <input id="nameBox" class="center" type="text" spellcheck="false"
-  [(ngModel)]="nameService.name"
-  #change
-  value="{{ nameService.name }}"/>
+<div class="nameDiv container">
+    <span id="prevArrow" class="nextPrev" (click)="nameService.goToPreviousName()">
+       ◀
+    </span>
+    <input id="nameBox" class="center" type="text" spellcheck="false"
+    [(ngModel)]="nameService.name"
+    #change
+    value="{{ nameService.nameList[nameService.nameIndex] }}"/>
+    <span id="nextArrow" class="nextPrev" (click)="nameService.goToNextName()">
+       ▶
+    </span>
 </div>
+
 <div>
   <div id="nameParams" class="container">
     <div class="btn-group" role="group">
@@ -31,7 +38,11 @@
   <button type="button"
     id="generateButton"
     class="btn btn-light center-block"
-    (click)="nameService.setName(nameService.generateName('','',''))">Generate</button>
+    (click)="nameService.setName(
+      nameService.generateName(
+        nameService.gender, nameService.race, nameService.length
+      )
+    )">Generate</button>
 </div>
 
 <footer>
