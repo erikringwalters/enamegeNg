@@ -39,7 +39,7 @@ export class NameService {
       this.nameList.shift();
     }
     this.nameList.push(name);
-    this.nameIndex = this.nameList.length;
+    this.nameIndex = this.nameList.length - 1;
   }
 
   goToPreviousName() {
