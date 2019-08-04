@@ -2,7 +2,10 @@
 <br/>
 
 <div class="nameDiv">
-  <input id="nameBox" class="center" type="text" spellcheck="false" value="{{ name }}"/>
+  <input id="nameBox" class="center" type="text" spellcheck="false"
+  [(ngModel)]="name"
+  #change
+  value="{{ name }}"/>
 </div>
 <div>
   <div id="nameParams" class="container">
@@ -28,7 +31,7 @@
   <button type="button"
     id="generateButton"
     class="btn btn-light center-block"
-    (click)="nameService.generateName('','','')">Generate</button>
+    (click)="setName(nameService.generateName('','',''))">Generate</button>
 </div>
 
 <footer>

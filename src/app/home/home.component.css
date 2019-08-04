@@ -35,6 +35,7 @@ h1 {
  #generateButton {
   text-align: center;
   width:200px;
+  cursor: pointer;
  }
 
 footer {

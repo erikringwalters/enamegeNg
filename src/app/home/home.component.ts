@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NameService } from '../name.service';
 import { AppModule } from '../app.module';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.name = this.nameService.generateName("","","");
+    // this.name = this.nameService.generateName("","","");
   }
   nameService: NameService = new NameService;
 
@@ -20,4 +21,8 @@ export class HomeComponent implements OnInit {
   title = 'eNameGen';
 
   name: string;
+
+  setName(name: string) {
+    this.name = name;
+  }
 }
