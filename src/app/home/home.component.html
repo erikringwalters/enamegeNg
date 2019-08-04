@@ -3,9 +3,9 @@
 
 <div class="nameDiv">
   <input id="nameBox" class="center" type="text" spellcheck="false"
-  [(ngModel)]="name"
+  [(ngModel)]="nameService.name"
   #change
-  value="{{ name }}"/>
+  value="{{ nameService.name }}"/>
 </div>
 <div>
   <div id="nameParams" class="container">
@@ -31,7 +31,7 @@
   <button type="button"
     id="generateButton"
     class="btn btn-light center-block"
-    (click)="setName(nameService.generateName('','',''))">Generate</button>
+    (click)="nameService.setName(nameService.generateName('','',''))">Generate</button>
 </div>
 
 <footer>

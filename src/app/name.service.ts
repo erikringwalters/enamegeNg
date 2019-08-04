@@ -10,12 +10,10 @@ export class NameService {
   constructor() {}
 
   name: string;
-
-  fragments1: string[] = ["aa", "ae", "ai", "ao", "au"];
-
-  fragments2: string[] = ["ea", "ee", "ei", "eo", "eu"];
-
-  fragments3: string[] = ["ia", "ie", "ii", "io", "iu"];
+  gender: string;
+  race: string;
+  length: string;
+  liked: boolean;
 
   getRandomNumber(min, max) {
     var random = Math.floor(Math.random() * (+max - +min)) + +min;
@@ -30,6 +28,24 @@ export class NameService {
 
     return this.name;
   }
+
+
+  setName(name: string) {
+    this.name = name;
+  }
+
+  setGender(gender: string) {
+    this.gender = gender;
+  }
+
+  setRace(race: string) {
+    this.race = race;
+  }
+
+  setLength(length: string) {
+    this.length = length;
+  }
+
   basic1 = [
     "Cor", "Ara", "Fon", "Kar", "Yu", "Ton", "Phu", "Ro", "Oli", "Tre", "Luo", "Wua", "Biu",
     "Lau", "Lo", "Zun", "Su", "Fea", "Bri", "Eo", "Elo", "Pu", "Rua", "Kru", "Pi", "Viv", "Vin",

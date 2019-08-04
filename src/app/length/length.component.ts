@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NameService } from '../name.service';
 
 @Component({
   selector: 'app-length',
@@ -7,17 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LengthComponent implements OnInit {
 
-  length: String;
+  length: string;
+
+  lengths: string[] = [
+    "short",
+    "medium",
+    "long",
+    "any"
+  ]
+
   constructor() { }
 
   ngOnInit() {
   }
-
-  getLength() {
-    return this.length;
-  }
-  setLength(length: String) {
-    this.length = length;
-  }
+  nameService: NameService = new NameService();
 
 }

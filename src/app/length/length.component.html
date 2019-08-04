@@ -10,9 +10,7 @@
     <div class="dropdown-menu"
     aria-labelledby="dropdownMenuLink" >
     <h6 class="dropdown-header">Length</h6>
-      <a class="dropdown-item" (click)="setLength('short')" value="short">Short</a>
-      <a class="dropdown-item" (click)="setLength('medium')" value="medium">Medium</a>
-      <a class="dropdown-item" (click)="setLength('long')" value="long">Long</a>
-      <a class="dropdown-item" (click)="setLength('any')" value="any">Any</a>
+      <a *ngFor="let length of lengths" class="dropdown-item"
+      (click)="nameService.setLength(lengths[length])" value="short">{{ length.charAt(0).toUpperCase() + length.slice(1) }}</a>
     </div>
   </div>

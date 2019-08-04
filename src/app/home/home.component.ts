@@ -19,10 +19,4 @@ export class HomeComponent implements OnInit {
 
   //TODO: Get title from app component
   title = 'eNameGen';
-
-  name: string;
-
-  setName(name: string) {
-    this.name = name;
-  }
 }
