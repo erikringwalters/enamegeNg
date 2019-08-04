@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NameService } from '../name.service';
 
 @Component({
   selector: 'app-race',
@@ -7,17 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RaceComponent implements OnInit {
 
-  race: String;
+  race: string;
+
+  races: string[] = [
+    "human",
+    "elf",
+    "orc",
+    "any"
+  ]
+
+  nameService: NameService = new NameService();
+
   constructor() { }
 
   ngOnInit() {
   }
-
-  getRace() {
-    return this.race;
-  }
-  setRace(race: String) {
-    this.race = race;
-  }
-
 }

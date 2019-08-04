@@ -11,10 +11,11 @@
   <!-- Menu Content -->
   <div class="dropdown-menu"
   aria-labelledby="dropdownMenuLink">
-  <h6 class="dropdown-header">Length</h6>
-    <a class="dropdown-item" (click)="setGender('male')" value="male">Male</a>
-    <a class="dropdown-item" (click)="setGender('female')" value="female">Female</a>
-    <a class="dropdown-item" (click)="setGender('other')" value="other">Other</a>
-    <a class="dropdown-item" (click)="setGender('any')" value="any">Any</a>
-  </div>
+  <h6 class="dropdown-header">Gender</h6>
+  <a *ngFor="let gender of genders" class="dropdown-item"
+  (click)="nameService.setGender(genders[gender])" value="short">
+  <!-- Capitalize first letter of string -->
+  {{ gender.charAt(0).toUpperCase() + gender.slice(1) }}
+  </a>
+</div>
 </div>

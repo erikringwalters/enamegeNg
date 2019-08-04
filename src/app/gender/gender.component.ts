@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NameService } from '../name.service';
 
 @Component({
   selector: 'app-gender',
@@ -7,17 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenderComponent implements OnInit {
 
-  gender: String;
+  gender: string;
+
+  genders: string[] = [
+    "masculine",
+    "feminine",
+    "any",
+  ]
+
+  nameService: NameService = new NameService();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  getGender() {
-    return this.gender;
-  }
-  setGender(gender: String) {
-    this.gender = gender;
-  }
 
 }
