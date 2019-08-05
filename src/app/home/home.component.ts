@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.nameService.setGender("any");
+    this.nameService.setRace("any");
+    this.nameService.setLength("any");
   }
   nameService: NameService = new NameService;
 

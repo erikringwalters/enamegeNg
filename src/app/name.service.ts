@@ -8,10 +8,7 @@ import {
 export class NameService {
 
   constructor() {
-    this.gender = "any";
-    this.race = "any";
-    this.length = "any";
-    this.liked = false;
+
   }
 
   name: string;
@@ -49,23 +46,23 @@ export class NameService {
     return random;
   }
 
-  generateName(gender: string, race: string, length: string) {
+  generateName() {
     this.name = "";
     var limit;
 
-    if(length === "any") {
+    var tempRace = this.race;
+
+    if(this.length === "any") {
       limit = this.getRandomNumber(1, 4);
     }
 
     for(var i = 1; i <= limit; i++) {
-      if(this.race ==="any") {
-        race = this.getRandomRace();
+      if(this.race === "any") {
+        tempRace = this.getRandomRace();
       }
-      this.name = this.name + this.getRandomFragment(race, i);
+      this.name = this.name + this.getRandomFragment(tempRace, i);
     }
-
-
-
+    this.name = this.name + this.genderify(this.gender);
     this.addToNameList(this.name);
 
     return this.name;
@@ -108,7 +105,30 @@ export class NameService {
   }
 
   genderify(gender: string) {
+    switch(gender) {
+      case "masculine":
+        if(this.coinFlip()) {
+          return "o";
+        }
+        return "";
+        break;
+      case "feminine":
+        if(this.coinFlip()) {
+          return "a";
+        }
+        return "";
+        break;
+      default:
+        return "";
+    }
+  }
 
+  coinFlip(): boolean {
+    var num = this.getRandomNumber(0,1)
+    if(num == 0) {
+      return false;
+    }
+    else return true;
   }
 
   getRandomRace() {

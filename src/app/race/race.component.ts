@@ -10,13 +10,6 @@ export class RaceComponent implements OnInit {
 
   race: string;
 
-  races: string[] = [
-    "human",
-    "elf",
-    "orc",
-    "any"
-  ]
-
   nameService: NameService = new NameService();
 
   constructor() { }
