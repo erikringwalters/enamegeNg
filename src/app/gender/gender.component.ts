@@ -10,12 +10,6 @@ export class GenderComponent implements OnInit {
 
   gender: string;
 
-  genders: string[] = [
-    "masculine",
-    "feminine",
-    "any",
-  ]
-
   nameService: NameService = new NameService();
 
   constructor() { }

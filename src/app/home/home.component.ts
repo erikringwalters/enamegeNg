@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // this.name = this.nameService.generateName("","","");
   }
   nameService: NameService = new NameService;
 

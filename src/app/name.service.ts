@@ -7,7 +7,12 @@ import {
 })
 export class NameService {
 
-  constructor() {}
+  constructor() {
+    this.gender = "any";
+    this.race = "any";
+    this.length = "any";
+    this.liked = false;
+  }
 
   name: string;
   gender: string;
@@ -18,16 +23,48 @@ export class NameService {
 
   nameList: Array<string> = [];
 
+  genders: string[] = [
+    "unspecified",
+    "masculine",
+    "feminine",
+    "any",
+  ]
+
+  races: string[] = [
+    "human",
+    "elf",
+    "orc",
+    "any"
+  ]
+
+  lengths: string[] = [
+    "short",
+    "medium",
+    "long",
+    "any"
+  ]
+
   getRandomNumber(min, max) {
     var random = Math.floor(Math.random() * (+max - +min)) + +min;
     return random;
   }
 
-  generateName(gender: String, race: String, length: String) {
+  generateName(gender: string, race: string, length: string) {
     this.name = "";
-    this.name = this.name + this.basic1[this.getRandomNumber(0, this.basic1.length)];
-    this.name = this.name + this.basic2[this.getRandomNumber(0, this.basic2.length)];
-    this.name = this.name + this.basic3[this.getRandomNumber(0, this.basic3.length)];
+    var limit;
+
+    if(length === "any") {
+      limit = this.getRandomNumber(1, 4);
+    }
+
+    for(var i = 1; i <= limit; i++) {
+      if(this.race ==="any") {
+        race = this.getRandomRace();
+      }
+      this.name = this.name + this.getRandomFragment(race, i);
+    }
+
+
 
     this.addToNameList(this.name);
 
@@ -70,7 +107,21 @@ export class NameService {
     this.length = length;
   }
 
-  basic1 = [
+  genderify(gender: string) {
+
+  }
+
+  getRandomRace() {
+    return this.races[this.getRandomNumber(1, this.races.length)];
+  }
+
+  getRandomFragment(race: string, i: number) {
+    return eval("this." + race + i)[
+      this.getRandomNumber(0, eval("this." + race + i).length)
+    ];
+  }
+
+  any1 = [
     "Cor", "Ara", "Fon", "Kar", "Yu", "Ton", "Phu", "Ro", "Oli", "Tre", "Luo", "Wua", "Biu",
     "Lau", "Lo", "Zun", "Su", "Fea", "Bri", "Eo", "Elo", "Pu", "Rua", "Kru", "Pi", "Viv", "Vin",
     "Blu", "Chu", "Ky", "Whe", "Qu", "Que", "Io", "Ma", "Mor", "Obe", "Ot", "Wi", "Za", "Ki", "Y",
@@ -99,7 +150,7 @@ export class NameService {
     "Kar", "Kul", "Kun", "Kil", "Myn", "Eck", "Tuc", "Kle", "Tul", "Asi", "Tho", "Thu", "The", "Meb", "Gel", "Gal", "Der", "Dul", "Und", "Er"
   ]
   ///
-  basic2 = [
+  any2 = [
     "oh", "uc", "pua", "war", "raw", "err", "tre", "mun", "um", "im", "cre", "lik", "ruc", "pul",
     "chu", "ma", "tae", "rao", "mua", "ik", "plu", "bo", "ba", "bre", "ip", "chur", "prim", "dif",
     "mod", "dor", "lir", "fru", "apu", "moa", "bo", "rech", "ich", "fim", "helle", "len", "vrun", "aul",
@@ -125,7 +176,7 @@ export class NameService {
     "an", "and", "the", "fan", "ta", "cre", "dit", "card", "san", "des", "cam", "mer", "sike", "des", "ine", "er", "bit", "get", "it"
   ]
   ///
-  basic3 = [
+  any3 = [
     "ou", "abe", "i", "mub", "och", "ode", "cer", "mor", "phine", "er", "ik", "po", "oke", "il", "ine", "co",
     "ver", "ame", "ien", "eck", "art", "tor", "um", "brum", "ello", "ith", "our", "outh", "ruff", "pur", "ette", "truk",
     "wor", "ord", "wim", "bur", "pul", "ry", "lub", "dine", "ters", "ey", "un", "ex", "ta", "cy", "mar", "io",
