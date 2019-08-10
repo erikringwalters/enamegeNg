@@ -53,7 +53,7 @@ export class NameService {
     var tempRace = this.race;
 
     if(this.length === "any") {
-      limit = this.getRandomNumber(1, 4);
+      limit = this.getRandomNumber(2, 4);
     }
 
     for(var i = 1; i <= limit; i++) {

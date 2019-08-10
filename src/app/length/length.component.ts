@@ -10,13 +10,6 @@ export class LengthComponent implements OnInit {
 
   length: string;
 
-  lengths: string[] = [
-    "short",
-    "medium",
-    "long",
-    "any"
-  ]
-
   constructor() { }
 
   ngOnInit() {
