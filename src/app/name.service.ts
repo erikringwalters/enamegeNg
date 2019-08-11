@@ -8,7 +8,9 @@ import {
 export class NameService {
 
   constructor() {
-
+    this.setGender("any");
+    this.setRace("any");
+    this.setLength("any");
   }
 
   name: string;
