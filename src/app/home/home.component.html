@@ -1,7 +1,7 @@
 <h1 class="center">{{ title }}</h1>
 <br/>
 
-<div class="nameDiv container">
+<div class="nameDiv container d-none d-md-block">
     <span id="prevArrow" class="nextPrev" (click)="nameService.goToPreviousName()">
        ◀
     </span>
@@ -12,6 +12,20 @@
     <span id="nextArrow" class="nextPrev" (click)="nameService.goToNextName()">
        ▶
     </span>
+</div>
+
+
+<div class="nameDiviOS container ios d-md-none">
+  <span id="prevArrowiOS" class="nextPrev ios" (click)="nameService.goToPreviousName()">
+    ◄
+  </span>
+  <input id="nameBoxiOS" class="center ios" type="text" spellcheck="false"
+  [(ngModel)]="nameService.name"
+  #change
+  value="{{ nameService.nameList[nameService.nameIndex] }}"/>
+  <span id="nextArrow" class="nextPrev ios" (click)="nameService.goToNextName()">
+    ►
+  </span>
 </div>
 
 <div>
