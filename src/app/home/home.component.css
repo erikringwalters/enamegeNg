@@ -1,3 +1,6 @@
+body {
+  touch-action: manipulation;
+}
 h1 {
   font-size: 32pt;
   margin: 50px;
@@ -17,6 +20,7 @@ h1 {
 }
 
 #nameBox, #nameBoxiOS {
+  height: 50px;
   width: 250px;
   text-align: center !important;
   font-size: 32px;
@@ -25,12 +29,6 @@ h1 {
   border: none;
   bottom: 100px;
   border-radius: 2px;
-}
-#nameBox {
-  height: 40px;
-}
-#nameBoxiOS {
-  height: 50px;
 }
 
 #nameParams {
