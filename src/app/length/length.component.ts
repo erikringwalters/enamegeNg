@@ -7,13 +7,29 @@ import { NameService } from '../name.service';
   styleUrls: ['./length.component.css']
 })
 export class LengthComponent implements OnInit {
-
-  length: string;
-
   constructor() { }
 
   ngOnInit() {
+    this.setLength("any");
   }
+
+  length: string;
+
+  lengths: string[] = [
+    "short",
+    "medium",
+    "long",
+    "any"
+  ]
+
   nameService: NameService = new NameService();
+
+  getLength() {
+    return this.length;
+  }
+
+  setLength(length: string) {
+    this.length = length;
+  }
 
 }

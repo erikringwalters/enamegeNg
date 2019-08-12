@@ -10,8 +10,8 @@
   <div class="dropdown-menu"
   aria-labelledby="dropdownMenuLink">
     <h6 class="dropdown-header">Gender</h6>
-    <a *ngFor="let gender of nameService.genders" class="dropdown-item"
-    (click)="nameService.setGender(gender)" value="short">
+    <a *ngFor="let gender of genders" class="dropdown-item"
+    (click)="changeGender(gender)" value="short">
     <!-- Capitalize first letter of string -->
     {{ gender.charAt(0).toUpperCase() + gender.slice(1) }}
     </a>

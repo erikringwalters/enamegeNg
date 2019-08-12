@@ -1,6 +1,6 @@
-import {
-  Injectable
-} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { GenderComponent } from './gender/gender.component';
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -8,66 +8,40 @@ import {
 export class NameService {
 
   constructor() {
-    this.setGender("any");
-    this.setRace("any");
-    this.setLength("any");
   }
 
   name: string;
-  gender: string;
-  race: string;
-  length: string;
   liked: boolean;
   nameIndex: number;
 
   nameList: Array<string> = [];
 
-  genders: string[] = [
-    "unspecified",
-    "masculine",
-    "feminine",
-    "any",
-  ]
+  getName() {
+    return this.name;
+  }
 
-  races: string[] = [
-    "human",
-    "elf",
-    "orc",
-    "any"
-  ]
-
-  lengths: string[] = [
-    "short",
-    "medium",
-    "long",
-    "any"
-  ]
+  setName(name: string) {
+    this.name = name;
+  }
 
   getRandomNumber(min, max) {
     var random = Math.floor(Math.random() * (+max - +min)) + +min;
     return random;
   }
 
-  generateName() {
-    this.name = "";
+  generateName(gender: string, race: string, length: string) {
+    var name = "";
     var limit;
 
-    var tempRace = this.race;
+    limit = this.getLengthNumber(length);
 
-    if(this.length === "any") {
-      limit = this.getRandomNumber(2, 4);
-    }
+    name = name + this.getRaceFragments(race, limit);
 
-    for(var i = 1; i <= limit; i++) {
-      if(this.race === "any") {
-        tempRace = this.getRandomRace();
-      }
-      this.name = this.name + this.getRandomFragment(tempRace, i);
-    }
-    this.name = this.name + this.genderify(this.gender);
-    this.addToNameList(this.name);
+    name = name + this.getGenderStyle(gender);
 
-    return this.name;
+    this.addToNameList(name);
+
+    this.setName(name);
   }
 
   addToNameList(name: string) {
@@ -90,36 +64,39 @@ export class NameService {
     }
   }
 
-  setName(name: string) {
-    this.name = name;
+  getLengthNumber(length: string) {
+    switch(length) {
+      case "short":
+        return 1;
+      case "medium":
+        return 2;
+      case "long":
+        return 3;
+      default:
+        return 2;
+    }
   }
 
-  setGender(gender: string) {
-    this.gender = gender;
+  getRaceFragments(race: string, limit: number) {
+    var fragments = "";
+    for(var i = 1; i <= limit; i++) {
+      fragments = fragments + this.getRandomFragment(race, i);
+    }
+    return fragments;
   }
 
-  setRace(race: string) {
-    this.race = race;
-  }
-
-  setLength(length: string) {
-    this.length = length;
-  }
-
-  genderify(gender: string) {
+  getGenderStyle(gender: string) {
     switch(gender) {
       case "masculine":
         if(this.coinFlip()) {
           return "o";
         }
         return "";
-        break;
       case "feminine":
         if(this.coinFlip()) {
           return "a";
         }
         return "";
-        break;
       default:
         return "";
     }
@@ -131,10 +108,6 @@ export class NameService {
       return false;
     }
     else return true;
-  }
-
-  getRandomRace() {
-    return this.races[this.getRandomNumber(1, this.races.length)];
   }
 
   getRandomFragment(race: string, i: number) {

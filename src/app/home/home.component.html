@@ -6,25 +6,13 @@
   <h1 class="center">{{ title }}</h1>
   <br />
 
-  <div class="nameDiv container d-none d-md-block d-lg-block d-xl-block">
+  <div class="nameDiv container">
     <span id="prevArrow" class="nextPrev" (click)="nameService.goToPreviousName()">
-      ◀
+      ◄
     </span>
     <input id="nameBox" class="center" type="text" spellcheck="false" [(ngModel)]="nameService.name" #change
       value="{{ nameService.nameList[nameService.nameIndex] }}" />
     <span id="nextArrow" class="nextPrev" (click)="nameService.goToNextName()">
-      ▶
-    </span>
-  </div>
-
-
-  <div class="nameDiviOS container ios d-md-none d-lg-none d-xl-none d-xs-block d-sm-block">
-    <span id="prevArrowiOS" class="nextPrev ios" (click)="nameService.goToPreviousName()">
-      ◄
-    </span>
-    <input id="nameBoxiOS" class="center ios" type="text" spellcheck="false" [(ngModel)]="nameService.name" #change
-      value="{{ nameService.nameList[nameService.nameIndex] }}" />
-    <span id="nextArrow" class="nextPrev ios" (click)="nameService.goToNextName()">
       ►
     </span>
   </div>
@@ -35,7 +23,7 @@
 
         <div class="row">
           <div class="dropbtn col-4">
-            <app-gender></app-gender>
+            <app-gender [genderIn]="this.gender" (genderOut)="genderChanged($event)"></app-gender>
           </div>
           <div class="dropbtn col-4">
             <app-race></app-race>
@@ -51,12 +39,23 @@
 
   <div id="generateDiv" class="col-12">
     <button type="button" id="generateButton" class="btn btn-light center-block" (click)="nameService.setName(
-      nameService.generateName()
+    changeAnyToItem(
+      this.gender,
+      raceComponent.getRace(),
+      lengthComponent.getLength()
+    ),
+
+    nameService.generateName(
+        this.gender,
+        raceComponent.getRace(),
+        lengthComponent.getLength()
+      )
     )">Generate</button>
   </div>
 
   <footer>
-    Github: <a id="githubLink" target="_blank" href="https://github.com/erikringwalters">
-      erikringwalters</a>
+    <span>Github:</span>
+      <a id="githubLink" target="_blank" href="https://github.com/erikringwalters">
+        erikringwalters</a>
   </footer>
 </body>

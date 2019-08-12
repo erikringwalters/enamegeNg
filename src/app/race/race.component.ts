@@ -7,13 +7,27 @@ import { NameService } from '../name.service';
   styleUrls: ['./race.component.css']
 })
 export class RaceComponent implements OnInit {
-
-  race: string;
-
-  nameService: NameService = new NameService();
-
   constructor() { }
 
   ngOnInit() {
+  }
+
+  race: string;
+
+  races: string[] = [
+    "human",
+    "elf",
+    "orc",
+    "any"
+  ]
+
+  nameService: NameService = new NameService();
+
+  getRace() {
+    return this.race;
+  }
+
+  setRace(race: string) {
+    this.race = race;
   }
 }

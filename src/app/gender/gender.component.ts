@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NameService } from '../name.service';
 
 @Component({
@@ -7,14 +7,25 @@ import { NameService } from '../name.service';
   styleUrls: ['./gender.component.css']
 })
 export class GenderComponent implements OnInit {
-
-  gender: string;
-
-  nameService: NameService = new NameService();
+  @Input() genderIn: { gender: string };
+  @Output() genderOut: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  genders: string[] = [
+    "unspecified",
+    "masculine",
+    "feminine",
+    "any",
+  ]
+
+  nameService: NameService = new NameService();
+
+  changeGender(gender: string) {
+    this.genderOut.emit(gender);
   }
 
 
