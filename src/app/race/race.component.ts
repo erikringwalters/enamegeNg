@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { NameService } from '../name.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { NameService } from '../name.service';
   styleUrls: ['./race.component.css']
 })
 export class RaceComponent implements OnInit {
+  @Input() raceIn: { race: string };
+  @Output() raceOut: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
@@ -23,11 +25,7 @@ export class RaceComponent implements OnInit {
 
   nameService: NameService = new NameService();
 
-  getRace() {
-    return this.race;
-  }
-
-  setRace(race: string) {
-    this.race = race;
+  changeRace(race: string) {
+    this.raceOut.emit(race);
   }
 }

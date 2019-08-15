@@ -11,7 +11,7 @@
   aria-labelledby="dropdownMenuLink" >
   <h6 class="dropdown-header">Race</h6>
     <a *ngFor="let race of races" class="dropdown-item"
-    (click)="setRace(race)" value="short">
+    (click)="changeRace(race)" value="short">
     <!-- Capitalize first letter of string -->
     {{ race.charAt(0).toUpperCase() + race.slice(1) }}
     </a>

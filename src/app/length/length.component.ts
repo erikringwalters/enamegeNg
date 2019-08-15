@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NameService } from '../name.service';
 
 @Component({
@@ -7,10 +7,12 @@ import { NameService } from '../name.service';
   styleUrls: ['./length.component.css']
 })
 export class LengthComponent implements OnInit {
+  @Input() lengthIn: { length: string };
+  @Output() lengthOut: EventEmitter<string> = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit() {
-    this.setLength("any");
   }
 
   length: string;
@@ -24,12 +26,8 @@ export class LengthComponent implements OnInit {
 
   nameService: NameService = new NameService();
 
-  getLength() {
-    return this.length;
-  }
-
-  setLength(length: string) {
-    this.length = length;
+  changeLength(length: string) {
+    this.lengthOut.emit(length);
   }
 
 }

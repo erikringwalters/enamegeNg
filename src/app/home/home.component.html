@@ -26,10 +26,10 @@
             <app-gender [genderIn]="this.gender" (genderOut)="genderChanged($event)"></app-gender>
           </div>
           <div class="dropbtn col-4">
-            <app-race></app-race>
+            <app-race [raceIn]="this.race" (raceOut)="raceChanged($event)"></app-race>
           </div>
           <div class="dropbtn col-4">
-            <app-length></app-length>
+            <app-length [lengthIn]="this.length" (lengthOut)="lengthChanged($event)"></app-length>
           </div>
         </div>
 
@@ -41,14 +41,14 @@
     <button type="button" id="generateButton" class="btn btn-light center-block" (click)="nameService.setName(
     changeAnyToItem(
       this.gender,
-      raceComponent.getRace(),
-      lengthComponent.getLength()
+      this.race,
+      this.length
     ),
 
     nameService.generateName(
         this.gender,
-        raceComponent.getRace(),
-        lengthComponent.getLength()
+        this.race,
+        this.length
       )
     )">Generate</button>
   </div>

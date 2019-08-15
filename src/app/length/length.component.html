@@ -11,7 +11,7 @@
   aria-labelledby="dropdownMenuLink" >
     <h6 class="dropdown-header">Length</h6>
     <a *ngFor="let length of lengths" class="dropdown-item"
-    (click)="setLength(length)" value="short">
+    (click)="changeLength(length)" value="short">
     <!-- Capitalize first letter of string -->
     {{ length.charAt(0).toUpperCase() + length.slice(1) }}
     </a>

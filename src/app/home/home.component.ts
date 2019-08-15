@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NameService } from '../name.service';
-import { AppModule } from '../app.module';
-import { FormsModule } from '@angular/forms';
 import { GenderComponent } from '../gender/gender.component';
 import { RaceComponent } from '../race/race.component';
 import { LengthComponent } from '../length/length.component';
@@ -26,16 +24,26 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.setGender("any");
-    this.raceComponent.setRace("any");
-    this.lengthComponent.setLength("any");
+    this.setRace("any");
+    this.setLength("any");
 
   }
 
   gender: string;
+  race: string;
+  length: string;
   nameService: NameService = new NameService;
 
   setGender(gender: string) {
     this.gender = gender;
+  }
+
+  setRace(race: string) {
+    this.race = race;
+  }
+
+  setLength(length: string) {
+    this.length = length;
   }
 
   //TODO: Get title from app component
@@ -52,14 +60,14 @@ export class HomeComponent implements OnInit {
       )
     }
     if(race === "any") {
-      this.raceComponent.setRace(
+      this.setRace(
         this.raceComponent.races[
           this.getRandomNumber(0, this.raceComponent.races.length)
         ]
       )
     }
     if(length === "any") {
-      this.lengthComponent.setLength(
+      this.setLength(
         this.lengthComponent.lengths[
           this.getRandomNumber(0, this.lengthComponent.lengths.length)
         ]
@@ -69,6 +77,14 @@ export class HomeComponent implements OnInit {
 
   genderChanged(gender: string) {
     this.setGender(gender);
+  }
+
+  raceChanged(race: string) {
+    this.setRace(race);
+  }
+
+  lengthChanged(length: string) {
+    this.setLength(length);
   }
 
   //TODO: move this
