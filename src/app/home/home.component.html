@@ -38,13 +38,8 @@
   </div>
 
   <div id="generateDiv" class="col-12">
-    <button type="button" id="generateButton" class="btn btn-light center-block" (click)="nameService.setName(
-    changeAnyToItem(
-      this.gender,
-      this.race,
-      this.length
-    ),
-
+    <button type="button" id="generateButton" class="btn btn-light center-block" (click)="
+    nameService.setName(
     nameService.generateName(
         this.gender,
         this.race,
