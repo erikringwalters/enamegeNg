@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { GenderComponent } from './gender/gender.component';
-import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'

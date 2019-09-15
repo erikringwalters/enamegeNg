@@ -3,6 +3,7 @@ import { NameService } from '../name.service';
 import { GenderComponent } from '../gender/gender.component';
 import { RaceComponent } from '../race/race.component';
 import { LengthComponent } from '../length/length.component';
+import { stringify } from '@angular/core/src/render3/util';
 
 
 @Component({
@@ -73,6 +74,40 @@ export class HomeComponent implements OnInit {
         ]
       )
     }
+  }
+
+  generateName(gender: string, race: string, length: string) {
+    var tempParams;
+    var tempGender, tempRace, tempLength;
+    tempParams = [ gender, race, length ];
+    tempGender = this.changeGenderIfEqualToAny(tempParams[0]);
+    tempRace = this.changeRaceIfEqualToAny(tempParams[1]);
+    tempLength = this.changeLengthIfEqualToAny(tempParams[2]);
+    this.nameService.generateName(tempGender, tempRace, tempLength);
+  }
+
+  changeRaceIfEqualToAny(race: string) {
+    if(race === "any"){
+      //get random race
+      return this.raceComponent.races[this.getRandomNumber(0, this.raceComponent.races.length - 1)];
+     }
+     return race;
+  }
+
+  changeGenderIfEqualToAny(gender: string) {
+    if(gender === "any"){
+      //get random gender
+      return this.genderComponent.genders[this.getRandomNumber(0, this.genderComponent.genders.length - 1)];
+      }
+      return gender;
+  }
+
+  changeLengthIfEqualToAny(length: string) {
+    if(length === "any"){
+      //get random length
+      return this.lengthComponent.lengths[this.getRandomNumber(0, this.lengthComponent.lengths.length - 1)];
+     }
+     return length;
   }
 
   genderChanged(gender: string) {
