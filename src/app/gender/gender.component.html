@@ -12,6 +12,7 @@
     <h6 class="dropdown-header">Gender</h6>
     <div class="dropdown-divider"></div>
     <a *ngFor="let gender of genders" class="dropdown-item"
+    [ngClass]="gender == this.selectedGender ? 'selected': 'notSelected'"
     (click)="changeGender(gender)" value="gender">
     <!-- Capitalize first letter of string -->
     {{ gender.charAt(0).toUpperCase() + gender.slice(1) }}

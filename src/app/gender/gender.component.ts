@@ -13,7 +13,10 @@ export class GenderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.setSelectedGender(this.genders[this.genders.length - 1]);
   }
+
+  selectedGender: string;
 
   genders: string[] = [
     "unspecified",
@@ -26,6 +29,11 @@ export class GenderComponent implements OnInit {
 
   changeGender(gender: string) {
     this.genderOut.emit(gender);
+    this.setSelectedGender(gender);
+  }
+
+  setSelectedGender(gender: string) {
+    this.selectedGender = gender;
   }
 
 

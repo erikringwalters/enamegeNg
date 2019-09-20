@@ -12,9 +12,10 @@ export class RaceComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.setSelectedRace(this.races[this.races.length - 1]);
   }
 
-  race: string;
+  selectedRace: string;
 
   races: string[] = [
     "human",
@@ -27,5 +28,11 @@ export class RaceComponent implements OnInit {
 
   changeRace(race: string) {
     this.raceOut.emit(race);
+    this.setSelectedRace(race);
   }
+
+  setSelectedRace(race: string) {
+    this.selectedRace = race;
+  }
+
 }

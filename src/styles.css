@@ -10,6 +10,16 @@ body{
 .dropdown{
   margin-top: 30px;
 }
+.dropdown-header {
+  font-weight: bold;
+}
 .dropdown-item{
   cursor: pointer;
 }
+.dropdown-item:hover {
+  background-color: #fff2f2
+}
+.selected, .dropdown-item:active {
+  background-color: #ff9c9c;
+}
+

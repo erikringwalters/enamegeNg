@@ -13,9 +13,10 @@ export class LengthComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.setSelectedLength(this.lengths[this.lengths.length - 1]);
   }
 
-  length: string;
+  selectedLength: string;
 
   lengths: string[] = [
     "short",
@@ -28,6 +29,12 @@ export class LengthComponent implements OnInit {
 
   changeLength(length: string) {
     this.lengthOut.emit(length);
+    this.setSelectedLength(length);
   }
+
+  setSelectedLength(length: string) {
+    this.selectedLength = length;
+  }
+
 
 }
