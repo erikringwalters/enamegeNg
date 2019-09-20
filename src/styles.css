@@ -19,7 +19,7 @@ body{
 .dropdown-item:hover {
   background-color: #fff2f2
 }
-.selected, .dropdown-item:active {
+.selected, .selected:hover, .dropdown-item:active {
   background-color: #ff9c9c;
 }
 
