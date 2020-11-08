@@ -1,5 +1,5 @@
 body{
-  background-color: #a00000;
+  background-color: #202a36;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -17,9 +17,9 @@ body{
   cursor: pointer;
 }
 .dropdown-item:hover {
-  background-color: #fff2f2
+  background-color: #e6ebf0;
 }
 .selected, .selected:hover, .dropdown-item:active {
-  background-color: #ff9c9c;
+  background-color: #abb9c7;
 }
 
